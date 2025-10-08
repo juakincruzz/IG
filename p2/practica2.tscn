@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfptcwlysp8ih"]
+
+[ext_resource type="Script" uid="uid://bl8slgqkrj0tq" path="res://node_3d.gd" id="1_rhda3"]
+[ext_resource type="Script" uid="uid://drc3seg4bdi4o" path="res://camara_3d_orbital_simple.gd" id="1_xmj7c"]
+[ext_resource type="Script" uid="uid://prnmplnc87ef" path="res://ejes.gd" id="2_6o17b"]
+[ext_resource type="PackedScene" uid="uid://di10sqemqlatk" path="res://modelos_3d/coche/CAR Model.glb" id="3_g17l1"]
+[ext_resource type="ArrayMesh" uid="uid://dldbhgo300f5x" path="res://modelos_3d/Jet/1397 Jet.obj" id="4_s8xnt"]
+[ext_resource type="Script" uid="uid://c63mtj5kd5t7m" path="res://donut.gd" id="5_jlby3"]
+[ext_resource type="Script" uid="uid://vaj8kblxok3n" path="res://cubo_8_vertices.gd" id="6_bd64p"]
+[ext_resource type="Script" uid="uid://b3wno26jax4j3" path="res://cubo_24_vertices.gd" id="7_he1oe"]
+[ext_resource type="Script" uid="uid://bf85t8rvewhb3" path="res://peon_revolucion.gd" id="9_7sye5"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_rhda3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707637, 0, 0.706576, 0, 1, 0, -0.706576, 0, 0.707637, 8.32635, 6.0505, 10.9837)
+script = ExtResource("1_xmj7c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.915663, -0.306553, -0.259976, 0, 0.64679, -0.762668, 0.401948, 0.698347, 0.592241, -13.487, -1.10761, 4.88302)
+
+[node name="Ejes3D" type="Node3D" parent="."]
+script = ExtResource("2_6o17b")
+
+[node name="ObjetosP2" type="Node3D" parent="."]
+
+[node name="CAR Model" parent="ObjetosP2" instance=ExtResource("3_g17l1")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 5.256361, 0, -8.069581)
+visible = false
+
+[node name="Jet" type="MeshInstance3D" parent="ObjetosP2"]
+transform = Transform3D(0.049947314, 0.00038430459, 0.0022627644, 0.00024607862, 0.048112795, -0.013605027, -0.0022819536, 0.013601823, 0.048060194, 2.5867882, 4.2150903, -3.3449273)
+visible = false
+mesh = ExtResource("4_s8xnt")
+
+[node name="Donut" type="MeshInstance3D" parent="ObjetosP2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3858471, 3.31713, 0)
+visible = false
+script = ExtResource("5_jlby3")
+
+[node name="Cubo8vertices" type="MeshInstance3D" parent="ObjetosP2"]
+visible = false
+script = ExtResource("6_bd64p")
+
+[node name="Cubo24vertices" type="MeshInstance3D" parent="ObjetosP2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+visible = false
+script = ExtResource("7_he1oe")
+
+[node name="PeonRevolucion" type="MeshInstance3D" parent="ObjetosP2"]
+script = ExtResource("9_7sye5")
