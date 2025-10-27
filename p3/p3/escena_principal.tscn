@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://6lq07smjefuo"]
+
+[ext_resource type="Script" uid="uid://kwxc3ptp8rg8" path="res://scripts/ejes.gd" id="2_hcujj"]
+[ext_resource type="Script" uid="uid://chua5ux7kr7pc" path="res://scripts/nodos/rotador_simple.gd" id="3_hcujj"]
+
+[node name="Raiz" type="Node3D"]
+
+[node name="Ejes" type="Node3D" parent="."]
+visible = false
+script = ExtResource("2_hcujj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.8128467, 0.34835595, -0.46682808, 0, 0.8014522, 0.5980589, 0.58247775, -0.48613015, 0.6514578, -1.8216219, 2.9862158, 2.6574614)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94788027, 1.8650595)
+
+[node name="GrafoP3" type="Node3D" parent="."]
+
+[node name="Soporte_Mesh" type="CSGBox3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(0.1, 0.1, 2)
+
+[node name="Soporte_2_Mesh" type="CSGBox3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0.95)
+size = Vector3(0.1, 0.1, -0.1)
+
+[node name="Cable_Conecta_Pivote" type="CSGCylinder3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.95)
+radius = 0.03
+height = 0.1
+
+[node name="Pivote_Principal" type="Node3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1)
+script = ExtResource("3_hcujj")
+
+[node name="Varilla_1_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.4, 0)
+radius = 0.2
+
+[node name="Varilla_2_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.6725334, -0.47620225, 0)
+radius = 0.02
+height = 1.0
+
+[node name="Varilla_3_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.673, -0.47600007, 0)
+radius = 0.02
+height = 1.0
+
+[node name="Varilla_4_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5377077, -0.57298946, 0)
+radius = 0.01
+height = 0.201
+
+[node name="Figura_A_Mesh" type="CSGBox3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.538, -0.775, 0)
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Varilla_5_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.538, -0.573, 0)
+radius = 0.01
+height = 0.201
+
+[node name="Pivote_Secundario" type="Node3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.565, -0.457, 0)
+script = ExtResource("3_hcujj")
+rotation_speed_deg = -30.0
+activar_accion = "toogle_secundario"
+
+[node name="Varilla_6_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(1.3113416e-07, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.3113416e-07, -5.7320566e-15, 0, -0.20679784, 0.027746618)
+radius = 0.01
+height = 0.5
+
+[node name="Varilla_7_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.241, -0.352, 0.027999997)
+radius = 0.01
+height = 0.3
+
+[node name="Varilla_8_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24068856, -0.35244894, 0.027971566)
+radius = 0.01
+height = 0.3
+
+[node name="Figura_C_Mesh" type="CSGBox3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24167562, -0.6, 0.0136806965)
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Figura_B_Mesh" type="CSGBox3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23699999, -0.59999996, 0.02700001)
+size = Vector3(0.2, 0.2, 0.2)
