@@ -1,0 +1,152 @@
+[gd_scene load_steps=14 format=3 uid="uid://6lq07smjefuo"]
+
+[ext_resource type="Script" uid="uid://kwxc3ptp8rg8" path="res://scripts/ejes.gd" id="2_hcujj"]
+[ext_resource type="Script" uid="uid://chua5ux7kr7pc" path="res://scripts/nodos/rotador_simple.gd" id="3_hcujj"]
+[ext_resource type="PackedScene" uid="uid://b8pt3xgk3l24o" path="res://modelos/Planet.glb" id="4_rftnj"]
+[ext_resource type="PackedScene" uid="uid://da5i460ljiyuf" path="res://modelos/Spaceship.glb" id="5_0or06"]
+[ext_resource type="PackedScene" uid="uid://c2tf61v5yihsi" path="res://modelos/Planet2.glb" id="5_afc6g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0or06"]
+albedo_color = Color(0.5027952, 0.00017909452, 0.5027917, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_afc6g"]
+albedo_color = Color(0.5019608, 0, 0.5019608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iupgd"]
+albedo_color = Color(0.5019608, 0, 0.5019608, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhnnm"]
+albedo_color = Color(0.09019608, 0.101960786, 0.2901961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgi0t"]
+albedo_color = Color(0.09019608, 0.101960786, 0.2901961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5e3jd"]
+albedo_color = Color(0.09019608, 0.101960786, 0.2901961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1xgag"]
+albedo_color = Color(0.09019608, 0.101960786, 0.2901961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awcrs"]
+albedo_color = Color(0.09019608, 0.101960786, 0.2901961, 1)
+
+[node name="Raiz" type="Node3D"]
+
+[node name="Ejes" type="Node3D" parent="."]
+visible = false
+script = ExtResource("2_hcujj")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.8660254, 0.50000006, 0, -0.5, 0.8660255, 0, 3, 4)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.856287, 1.8650595)
+
+[node name="GrafoP3" type="Node3D" parent="."]
+
+[node name="Soporte_Mesh" type="CSGBox3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+size = Vector3(0.1, 0.1, 2)
+material = SubResource("StandardMaterial3D_0or06")
+
+[node name="Soporte_2_Mesh" type="CSGBox3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0.95)
+size = Vector3(0.1, 0.1, -0.1)
+material = SubResource("StandardMaterial3D_afc6g")
+
+[node name="Cable_Conecta_Pivote" type="CSGCylinder3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7476404, 0.95)
+radius = 0.03
+height = 0.2
+material = SubResource("StandardMaterial3D_iupgd")
+
+[node name="Pivote_Principal" type="Node3D" parent="GrafoP3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
+script = ExtResource("3_hcujj")
+
+[node name="Varilla_1_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+radius = 0.2
+material = SubResource("StandardMaterial3D_lhnnm")
+
+[node name="Varilla_2_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, 0.65, 0, 0)
+radius = 0.04
+height = 1.0
+material = SubResource("StandardMaterial3D_hgi0t")
+
+[node name="Varilla_3_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 1.9106855e-15, -0.65, 0, 0)
+radius = 0.04
+height = 1.0
+material = SubResource("StandardMaterial3D_5e3jd")
+
+[node name="Varilla_5_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, -0.1, 0)
+radius = 0.01
+height = 0.201
+material = SubResource("StandardMaterial3D_1xgag")
+
+[node name="Figura_A_Node" type="Node3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.65, -0.25, 0)
+script = ExtResource("3_hcujj")
+rotation_speed_deg = 30.0
+activar_accion = "toogle_figura"
+
+[node name="Figura_A_Mesh" type="MeshInstance3D" parent="GrafoP3/Pivote_Principal/Figura_A_Node"]
+
+[node name="Planeta" parent="GrafoP3/Pivote_Principal/Figura_A_Node/Figura_A_Mesh" instance=ExtResource("4_rftnj")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Pivote_Secundario" type="Node3D" parent="GrafoP3/Pivote_Principal"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.65, -0.12, 0)
+script = ExtResource("3_hcujj")
+activar_accion = "toogle_secundario"
+
+[node name="Varilla_4_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+radius = 0.01
+height = 0.201
+material = SubResource("StandardMaterial3D_awcrs")
+
+[node name="Pivote_Terciario" type="Node3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+script = ExtResource("3_hcujj")
+
+[node name="Varilla_6_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario"]
+transform = Transform3D(1.3113416e-07, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, 1.3113416e-07, -5.7320566e-15, 0, 0, 0)
+radius = 0.01
+height = 0.5
+material = SubResource("StandardMaterial3D_awcrs")
+
+[node name="Varilla_7_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.15, 0)
+radius = 0.01
+height = 0.3
+material = SubResource("StandardMaterial3D_awcrs")
+
+[node name="Varilla_8_Mesh" type="CSGCylinder3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.241, -0.15, 0)
+radius = 0.01
+height = 0.3
+material = SubResource("StandardMaterial3D_awcrs")
+
+[node name="Figura_B_Node" type="Node3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, -0.3, 0)
+script = ExtResource("3_hcujj")
+activar_accion = "toogle_figuras_juntas"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario/Figura_B_Node"]
+
+[node name="NaveEspacial" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario/Figura_B_Node/MeshInstance3D" instance=ExtResource("5_0or06")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0, 0)
+
+[node name="Figura_C_Node" type="Node3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, -0.3, 0)
+script = ExtResource("3_hcujj")
+activar_accion = "toogle_figuras_juntas"
+
+[node name="Planeta2" type="MeshInstance3D" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario/Figura_C_Node"]
+
+[node name="Root Scene" parent="GrafoP3/Pivote_Principal/Pivote_Secundario/Pivote_Terciario/Figura_C_Node/Planeta2" instance=ExtResource("5_afc6g")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
