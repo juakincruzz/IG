@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://bahr6dkxnh0ac"]
+
+[ext_resource type="Script" uid="uid://bxhqlwhh6at1e" path="res://scripts/camara_3d_orbital_simple.gd" id="1_r0811"]
+[ext_resource type="Script" uid="uid://bv4jbh80pqi8n" path="res://scripts/luz_toogle.gd" id="1_rftnj"]
+[ext_resource type="Script" uid="uid://cafax5e4ejpip" path="res://scripts/ejes.gd" id="2_hcujj"]
+[ext_resource type="Script" uid="uid://bi2fv3x310swv" path="res://scripts/peon_revolucion.gd" id="4_0or06"]
+[ext_resource type="Script" uid="uid://ddouknkbw8sfd" path="res://scripts/paredes.gd" id="5_0or06"]
+[ext_resource type="Texture2D" uid="uid://b2guscppukp4" path="res://texturas/textura_ladrillos.jpg" id="6_hgi0t"]
+[ext_resource type="Texture2D" uid="uid://lru8kyq36pr" path="res://texturas/textura_piedras.jpg" id="7_5e3jd"]
+[ext_resource type="Texture2D" uid="uid://cr0w4nkjhkw08" path="res://texturas/mapa_normales_ladrillos.jpg" id="8_1xgag"]
+[ext_resource type="Texture2D" uid="uid://b7w0xn43x868e" path="res://texturas/mapa_normales_piedra.jpg" id="9_awcrs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rftnj"]
+
+[node name="NodoRaiz" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+script = ExtResource("1_r0811")
+
+[node name="Ejes" type="Node3D" parent="."]
+script = ExtResource("2_hcujj")
+
+[node name="Objetos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="Peon" type="MeshInstance3D" parent="Objetos"]
+script = ExtResource("4_0or06")
+
+[node name="Peon2" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+script = ExtResource("4_0or06")
+columna = 1
+
+[node name="Peon3" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+script = ExtResource("4_0or06")
+columna = 2
+
+[node name="Peon4" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+script = ExtResource("4_0or06")
+fila = 1
+
+[node name="Peon5" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+script = ExtResource("4_0or06")
+columna = 1
+fila = 1
+
+[node name="Peon6" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+script = ExtResource("4_0or06")
+columna = 2
+fila = 1
+
+[node name="Peon7" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+script = ExtResource("4_0or06")
+fila = 2
+
+[node name="Peon8" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+script = ExtResource("4_0or06")
+columna = 1
+fila = 2
+
+[node name="Peon9" type="MeshInstance3D" parent="Objetos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)
+script = ExtResource("4_0or06")
+columna = 2
+fila = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.6433828, 0.37, -0.67019325, -0.13429196, 0.9164194, 0.37701666, 0.7536739, -0.15256439, 0.6392963, -4, 4, 4)
+light_energy = 2.0
+shadow_enabled = true
+script = ExtResource("1_rftnj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, 0)
+shadow_enabled = true
+omni_range = 10.0
+script = ExtResource("1_rftnj")
+toggle_action = "toggle_luz_omni"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, 6, -4)
+light_color = Color(1, 0.95686275, 0.8156863, 1)
+light_energy = 150.0
+light_volumetric_fog_energy = 0.1
+shadow_enabled = true
+shadow_normal_bias = 0.3
+shadow_blur = 4.0
+spot_range = 10.0
+spot_attenuation = 1.5
+script = ExtResource("1_rftnj")
+toggle_action = "toggle_luz_spot"
+
+[node name="NodoSuelo" type="Node3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -2, -2)
+
+[node name="Suelo" type="MeshInstance3D" parent="NodoSuelo"]
+mesh = SubResource("PlaneMesh_rftnj")
+
+[node name="Pared" type="MeshInstance3D" parent="."]
+script = ExtResource("5_0or06")
+textura_ladrillos = ExtResource("6_hgi0t")
+textura_piedras = ExtResource("7_5e3jd")
+mapa_normales_ladrillos = ExtResource("8_1xgag")
+mapa_normales_piedras = ExtResource("9_awcrs")
