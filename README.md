@@ -45,7 +45,7 @@ Cada carpeta representa una iteración funcional con objetivos específicos de l
 
 - **P2:** 10/10  
 - **P3:** 9,5/10  
-- **P4:** 9,5/19  
+- **P4:** 9,5/10  
 - **P5:** 8/10  
 - **P6:** 8/10  
 
