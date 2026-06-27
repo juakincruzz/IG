@@ -36,11 +36,11 @@ El repositorio está organizado por prácticas:
 - `p5/` 
 - `p6/`
 
-**Práctica 2: Carga de modelos externos y normales.**
-**Práctica 3: Grafos de escena.**
-**Práctica 4: Iluminación, materiales y texturas.**
-**Práctica 5: Interacción con ratón y selección de objetos.**
-**Práctica 6: Proyecto final.**
+- **Práctica 2: Carga de modelos externos y normales.**
+- **Práctica 3: Grafos de escena.**
+- **Práctica 4: Iluminación, materiales y texturas.**
+- **Práctica 5: Interacción con ratón y selección de objetos.**
+- **Práctica 6: Proyecto final.**
 
 Cada carpeta representa una iteración funcional con objetivos específicos de la asignatura.
 
