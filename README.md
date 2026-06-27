@@ -30,12 +30,11 @@ Construir y consolidar competencias en desarrollo interactivo con Godot mediante
 
 El repositorio está organizado por prácticas:
 
-- `p1/`
-- `p2/`
-- `p3/`
-- `p4/`
-- `p5/`
-- `p6/`
+- `p2/`: **Práctica 2: Carga de modelos externos y normales.**
+- `p3/`: **Práctica 3: Grafos de escena.**
+- `p4/`: **Práctica 4: Iluminación, materiales y texturas.**
+- `p5/`: **Práctica 5: Interacción con ratón y selección de objetos.**
+- `p6/`: **Práctica 6: Proyecto final.**
 
 Cada carpeta representa una iteración funcional con objetivos específicos de la asignatura.
 
