@@ -116,18 +116,6 @@ La práctica final incluye shaders personalizados en GDShader:
 
 ---
 
-## Resultados académicos
-
-| Práctica | Calificación |
-|---|---:|
-| P2 | 10/10 |
-| P3 | 9,5/10 |
-| P4 | 9,5/10 |
-| P5 | 8/10 |
-| P6 | 8/10 |
-
----
-
 ## Ejecución
 
 Clonar el repositorio:
